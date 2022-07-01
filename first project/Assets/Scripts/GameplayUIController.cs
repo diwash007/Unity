@@ -5,11 +5,13 @@ public class GameplayUIController : MonoBehaviour
 {
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Gameplay");
+        GameManager.scoreValue = 0;
     }
 
     public void HomeButton()
     {
         SceneManager.LoadScene("MainMenu");
+        GameManager.scoreValue = 0;
     }
 }

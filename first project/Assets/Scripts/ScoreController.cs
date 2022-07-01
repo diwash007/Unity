@@ -1,25 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreController : MonoBehaviour
 {
     [SerializeField]
     private Text scoreText;
-    private int scoreValue;
+
+    void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "Gameplay")
+            scoreText.text = "Score: " + GameManager.scoreValue;
+        else
+            scoreText.text = "Score: " + GameManager.finalScore;
+    }
 
     void Start()
     {
         InvokeRepeating("UpdateScore", 1.0f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        scoreText.text = "Score: " + scoreValue;
-    }
-
     void UpdateScore()
     {
-        scoreValue += 1;
+        GameManager.scoreValue += 1;
     }
+
+    public void StopInvoke() {
+        CancelInvoke();
+    }
+
 }
