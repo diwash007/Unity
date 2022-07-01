@@ -9,10 +9,7 @@ public class ScoreController : MonoBehaviour
 
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Gameplay")
-            scoreText.text = "Score: " + GameManager.scoreValue;
-        else
-            scoreText.text = "Score: " + GameManager.finalScore;
+        scoreText.text = "Score: " + GameManager.scoreValue;
     }
 
     void Start()
@@ -22,11 +19,11 @@ public class ScoreController : MonoBehaviour
 
     void UpdateScore()
     {
+        if (GameManager.gameOver == true)
+        {
+            CancelInvoke();
+            return;
+        }
         GameManager.scoreValue += 1;
     }
-
-    public void StopInvoke() {
-        CancelInvoke();
-    }
-
 }

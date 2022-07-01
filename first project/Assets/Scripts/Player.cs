@@ -81,11 +81,7 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             SceneManager.LoadScene("GameOver");
-            // foreach (var x in GameObject.FindGameObjectsWithTag("Score")) {
-            //     x.SendMessage("StopInvoke");
-            //     Debug.Log(x);
-            // }
-            GameManager.finalScore = GameManager.scoreValue;
+            GameManager.gameOver = true;
         }
     }
 
@@ -95,11 +91,7 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             SceneManager.LoadScene("GameOver");
-            // foreach (var x in GameObject.FindGameObjectsWithTag("Score")) {
-            //     x.SendMessage("StopInvoke");
-            //     Debug.Log(x);
-            // }
-            GameManager.finalScore = GameManager.scoreValue;
+            GameManager.gameOver = true;
         }
     }
 }
