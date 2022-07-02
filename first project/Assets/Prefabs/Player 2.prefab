@@ -160,10 +160,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 10
   jumpForce: 10
-  foot: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  deathParticle: {fileID: 7502166219836811173, guid: 7454159a3b1ddc04f867944a52ad97a1, type: 3}
 --- !u!1 &8463173179710618233
 GameObject:
   m_ObjectHideFlags: 0

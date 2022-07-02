@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     LayerMask groundMask;
 
+    public ParticleSystem deathParticle;
+
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -89,13 +91,19 @@ public class Player : MonoBehaviour
         return hit;
     }
 
+    IEnumerator LoadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("GameOver");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(ENEMY_TAG))
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("GameOver");
             GameManager.gameOver = true;
+            Destroy();
+            StartCoroutine(LoadSceneAfterDelay(3.0f));
         }
     }
 
@@ -103,10 +111,19 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag(ENEMY_TAG))
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("GameOver");
             GameManager.gameOver = true;
+            Destroy();
+            StartCoroutine(LoadSceneAfterDelay(3.0f));
         }
+    }
+
+    public void Destroy()
+    {
+        ParticleSystem impactPS = Instantiate(deathParticle, transform.position,
+            Quaternion.identity) as ParticleSystem;
+        impactPS.Play();
+        Debug.Log("hmm");
+        Destroy(gameObject);
     }
 
 }

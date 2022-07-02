@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreController : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class ScoreController : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "Score: " + GameManager.scoreValue;
+        if (SceneManager.GetActiveScene().name == "Gameplay")
+            scoreText.text = "Score: " + GameManager.scoreValue;
+        else
+            scoreText.text = "Score: " + GameManager.finalScore;
     }
 
     void Start()
@@ -20,7 +24,7 @@ public class ScoreController : MonoBehaviour
     {
         if (GameManager.gameOver == true)
         {
-            CancelInvoke();
+            GameManager.finalScore = GameManager.scoreValue;
             return;
         }
         GameManager.scoreValue += 1;

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static int scoreValue;
+    public static int finalScore;
     public static bool gameOver = false;
 
     public static GameManager instance;
