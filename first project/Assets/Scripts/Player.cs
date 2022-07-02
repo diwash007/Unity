@@ -9,27 +9,30 @@ public class Player : MonoBehaviour
     private float moveForce = 10f;
 
     [SerializeField]
-    private float jumpForce = 11f;
+    private float jumpForce = 1f;
 
     private float movementX;
 
     private SpriteRenderer sr;
 
     private Rigidbody2D myBody;
-
+    private CapsuleCollider2D playerCollider;
     private Animator anim;
 
     private readonly string WALK_ANIMATION = "Walk";
 
-    private bool isGrounded;
-    private readonly string GROUND_TAG = "Ground";
+    private bool canJump;
     private readonly string ENEMY_TAG = "Enemy";
+
+    [SerializeField]
+    LayerMask groundMask;
 
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -67,16 +70,27 @@ public class Player : MonoBehaviour
 
     void PlayerJump()
     {
-        if (Input.GetButton("Jump") && isGrounded)
+        if (Input.GetButton("Jump") && IsGrounded())
         {
-            isGrounded = false;
-            myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            Vector2 jumpVector = Vector2.up * jumpForce;
+            jumpVector.x = myBody.velocity.x;
+            myBody.velocity = jumpVector;
         }
+    }
+
+    private bool IsGrounded()
+    {
+        bool hit = Physics2D.Raycast(
+            transform.position,
+            Vector2.down,
+            playerCollider.bounds.extents.y + 0.1f,
+            groundMask
+        );
+        return hit;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(GROUND_TAG)) isGrounded = true;
         if (collision.gameObject.CompareTag(ENEMY_TAG))
         {
             Destroy(gameObject);
@@ -94,4 +108,5 @@ public class Player : MonoBehaviour
             GameManager.gameOver = true;
         }
     }
+
 }
