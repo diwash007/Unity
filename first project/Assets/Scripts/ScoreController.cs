@@ -23,7 +23,8 @@ public class ScoreController : MonoBehaviour
     void UpdateScore()
     {
         if (GameManager.gameOver == true)
-        {
+        {   
+            GameManager.gameOver = false;
             GameManager.finalScore = GameManager.scoreValue;
             return;
         }
