@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8585249538256349254}
   - component: {fileID: 2821146814551565058}
   - component: {fileID: 1870252405112208827}
+  - component: {fileID: 163564547}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -249,6 +250,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   deathParticle: {fileID: 7502166219836811173, guid: 7454159a3b1ddc04f867944a52ad97a1, type: 3}
+--- !u!114 &163564547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155884045347641151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dfd24d22107424bb6d74c6641306a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawner: {fileID: 7073182890734521178}
+  bullet: {fileID: 2722822436030129465, guid: c0cb306b90274ca44b324ddb761ceea3, type: 3}
+  coolDownTimer: 0.5
+  bulletSpeed: 25
+  canFire: 1
 --- !u!1 &6848891016775665564
 GameObject:
   m_ObjectHideFlags: 0
