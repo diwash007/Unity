@@ -102,8 +102,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag(ENEMY_TAG))
         {
             GameManager.gameOver = true;
-            Destroy();
             StartCoroutine(LoadSceneAfterDelay(3.0f));
+            Destroy();
         }
     }
 
@@ -112,8 +112,8 @@ public class Player : MonoBehaviour
         if (collision.CompareTag(ENEMY_TAG))
         {
             GameManager.gameOver = true;
-            Destroy();
             StartCoroutine(LoadSceneAfterDelay(3.0f));
+            Destroy();
         }
     }
 
@@ -122,8 +122,6 @@ public class Player : MonoBehaviour
         ParticleSystem impactPS = Instantiate(deathParticle, transform.position,
             Quaternion.identity) as ParticleSystem;
         impactPS.Play();
-        Debug.Log("hmm");
-        Destroy(gameObject);
     }
 
 }
