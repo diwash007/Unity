@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4198981591433141776}
   - component: {fileID: 4416276678612920270}
   - component: {fileID: 7291762947522088649}
+  - component: {fileID: 8573208635514559363}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -34,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5521945951201841081}
+  - {fileID: 671408030709291294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,6 +166,54 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   deathParticle: {fileID: 7502166219836811173, guid: 7454159a3b1ddc04f867944a52ad97a1, type: 3}
+--- !u!114 &8573208635514559363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941307542257955823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dfd24d22107424bb6d74c6641306a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawner: {fileID: 671408030709291294}
+  bullet: {fileID: 2722822436030129465, guid: c0cb306b90274ca44b324ddb761ceea3, type: 3}
+  coolDownTimer: 0.5
+  bulletSpeed: 25
+  canFire: 1
+--- !u!1 &4949581696377360481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671408030709291294}
+  m_Layer: 0
+  m_Name: Shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671408030709291294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4949581696377360481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.58, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8282886066849481010}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8463173179710618233
 GameObject:
   m_ObjectHideFlags: 0

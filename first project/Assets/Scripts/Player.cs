@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,8 +12,6 @@ public class Player : MonoBehaviour
     private float jumpForce = 1f;
 
     private float movementX;
-
-    private SpriteRenderer sr;
 
     private Rigidbody2D myBody;
     private CapsuleCollider2D playerCollider;
@@ -33,7 +31,6 @@ public class Player : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
         playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
     }
 
@@ -59,17 +56,22 @@ public class Player : MonoBehaviour
     {
         if (movementX > 0)
         {
+            transform.localScale = new Vector2(1, 1);
             anim.SetBool(WALK_ANIMATION, true);
-            sr.flipX = false;
         }
         else if (movementX < 0)
         {
+            transform.localScale = new Vector2(-1, 1);
             anim.SetBool(WALK_ANIMATION, true);
-            sr.flipX = true;
         }
-        else anim.SetBool(WALK_ANIMATION, false);
+        else
+        {
+            var myTransform = transform;
+            myTransform.localScale = new Vector2(myTransform.localScale.x, 1);
+            anim.SetBool(WALK_ANIMATION, false);
+        }
     }
-
+    
     void PlayerJump()
     {
         if (Input.GetButton("Jump") && IsGrounded())
