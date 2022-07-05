@@ -249,7 +249,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  deathParticle: {fileID: 7502166219836811173, guid: 7454159a3b1ddc04f867944a52ad97a1, type: 3}
+  deathParticle: {fileID: 7502166219836811173, guid: 21ec5f6ede4ff5e4e95cd93d8f4ac244, type: 3}
 --- !u!114 &163564547
 MonoBehaviour:
   m_ObjectHideFlags: 0
