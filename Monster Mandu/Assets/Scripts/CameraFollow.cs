@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
         if (!player) return;
         
         tempPos = transform.position;
-        tempPos.x = player.position.x + 5;
+        tempPos.x = player.position.x + 3;
 
         if (tempPos.x < minX) tempPos.x = minX;
         if (tempPos.x > maxX) tempPos.x = maxX;
