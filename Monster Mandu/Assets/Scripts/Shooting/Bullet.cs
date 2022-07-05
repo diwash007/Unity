@@ -20,6 +20,7 @@ namespace Shooting
             
             var particle = Instantiate(hitParticle, transform.position, Quaternion.identity);
             particle.Play();
+            GameManager.scoreValue += 5;
             Destroy(gameObject);
             Destroy(col.gameObject);
         }
