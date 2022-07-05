@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
@@ -8,16 +7,26 @@ public class Monster : MonoBehaviour
     public float speed;
 
     private Rigidbody2D myBody;
+    private const string EnemyAudioSfxTag = "EnemyAudioSource";
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private AudioClip enemyDeathSfx;
+    [SerializeField]
+    private AudioSource enemyKillAudioSource;
+
     void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
+        enemyKillAudioSource = GameObject.FindWithTag(EnemyAudioSfxTag).GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         myBody.velocity = new Vector2(speed, myBody.velocity.y);
+    }
+
+    public void PlayDeathAudio()
+    {
+        enemyKillAudioSource.Play();
     }
 }

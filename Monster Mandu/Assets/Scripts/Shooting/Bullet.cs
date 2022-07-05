@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Shooting
@@ -8,7 +10,7 @@ namespace Shooting
 
         [SerializeField]
         private ParticleSystem hitParticle;
-
+        
         private void OnEnable()
         {
             Destroy(gameObject, 0.3f);
@@ -18,13 +20,14 @@ namespace Shooting
         {
             if (!col.CompareTag(Enemy)) return;
 
+            col.gameObject.TryGetComponent<Monster>(out var monster);
+            monster.PlayDeathAudio();
+            
             var particle = Instantiate(hitParticle, transform.position, Quaternion.identity);
             particle.Play();
             GameManager.scoreValue += 5;
             Destroy(gameObject);
             Destroy(col.gameObject);
         }
-        
-        
     }
 }
