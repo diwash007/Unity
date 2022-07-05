@@ -103,8 +103,8 @@ public class Player : MonoBehaviour
 
         // mario type death
         playerCollider.enabled = false;
+        myBody.velocity = Vector2.zero;
         Vector2 jumpVector = Vector2.up * jumpForce;
-        jumpVector.x = myBody.velocity.x;
         myBody.gravityScale = 1.5f;
         myBody.AddForce(jumpVector, ForceMode2D.Impulse);
         yield return new WaitForSeconds(delay);
@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
     public void Destroy()
     {
         ParticleSystem impactPS = Instantiate(deathParticle, transform.position,
-            Quaternion.identity) as ParticleSystem;
+            Quaternion.identity);
         impactPS.Play();
     }
 
