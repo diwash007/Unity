@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     private float movementX;
 
+    private bool freeze = false;
+
     private Rigidbody2D myBody;
     private CapsuleCollider2D playerCollider;
     private Animator anim;
@@ -36,14 +38,17 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        PlayerMoveKeyboard();
-        AnimatePlayer();
+    {   
+        if (!freeze) {
+            PlayerMoveKeyboard();
+            AnimatePlayer();
+        }
     }
 
     private void FixedUpdate()
-    {
-        PlayerJump();
+    {   
+        if (!freeze)
+            PlayerJump();
     }
 
     void PlayerMoveKeyboard()
@@ -94,7 +99,15 @@ public class Player : MonoBehaviour
     }
 
     IEnumerator LoadSceneAfterDelay(float delay)
-    {
+    {   
+        freeze = true;
+
+        // mario type death
+        playerCollider.enabled = false;
+        Vector2 jumpVector = Vector2.up * jumpForce;
+        jumpVector.x = myBody.velocity.x;
+        myBody.gravityScale = 1.5f;
+        myBody.AddForce(jumpVector, ForceMode2D.Impulse);
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("GameOver");
     }
@@ -104,7 +117,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag(ENEMY_TAG))
         {
             GameManager.gameOver = true;
-            StartCoroutine(LoadSceneAfterDelay(3.0f));
+            StartCoroutine(LoadSceneAfterDelay(1.5f));
             Destroy();
         }
     }
@@ -114,7 +127,7 @@ public class Player : MonoBehaviour
         if (collision.CompareTag(ENEMY_TAG))
         {
             GameManager.gameOver = true;
-            StartCoroutine(LoadSceneAfterDelay(3.0f));
+            StartCoroutine(LoadSceneAfterDelay(1.5f));
             Destroy();
         }
     }
