@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
 
     private readonly string WALK_ANIMATION = "Walk";
 
-    private bool canJump;
     private readonly string ENEMY_TAG = "Enemy";
 
     [SerializeField]
