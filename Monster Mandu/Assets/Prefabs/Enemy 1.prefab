@@ -158,3 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  deathSFX: {fileID: 756710641895062576, guid: a2061b99f606a974f8651408d97aa228, type: 3}

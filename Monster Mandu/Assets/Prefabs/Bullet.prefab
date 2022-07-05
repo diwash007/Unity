@@ -137,3 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitParticle: {fileID: 7502166219836811173, guid: 21ec5f6ede4ff5e4e95cd93d8f4ac244, type: 3}
+  deathSFX: {fileID: 756710641895062576, guid: a2061b99f606a974f8651408d97aa228, type: 3}
+  bulletSFX: {fileID: 4695012813541232809, guid: 78320359788fad041a248e8ea1ede591, type: 3}

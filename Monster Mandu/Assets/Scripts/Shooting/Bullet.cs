@@ -8,7 +8,7 @@ namespace Shooting
 
         [SerializeField]
         private ParticleSystem hitParticle;
-    
+
         private void OnEnable()
         {
             Destroy(gameObject, 0.3f);
@@ -17,7 +17,7 @@ namespace Shooting
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (!col.CompareTag(Enemy)) return;
-            
+
             var particle = Instantiate(hitParticle, transform.position, Quaternion.identity);
             particle.Play();
             GameManager.scoreValue += 5;

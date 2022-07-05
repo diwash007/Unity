@@ -12,6 +12,8 @@ namespace Shooting
         private Transform bulletSpawner;
         [SerializeField]
         private GameObject bullet;
+        [SerializeField]
+        AudioSource bulletSFX;
 
         [SerializeField]
         private float coolDownTimer = 0.3f;
@@ -30,11 +32,13 @@ namespace Shooting
 
         private void Shoot()
         {
+            bulletSFX.Play();
+
             var spawnedBullet = Instantiate(bullet, bulletSpawner.position, Quaternion.identity);
             spawnedBullet.TryGetComponent<Rigidbody2D>(out var bulletRb);
             var dir = transform.localScale.x;
             bulletRb.velocity = new Vector2( dir * bulletSpeed, 0);
-            
+
             canFire = false;
             StopAllCoroutines();
             StartCoroutine(SetCanFire());
