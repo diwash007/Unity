@@ -11,7 +11,7 @@ namespace Shooting
     
         private void OnEnable()
         {
-            Destroy(gameObject, 3);
+            Destroy(gameObject, 0.3f);
         }
         
         private void OnTriggerEnter2D(Collider2D col)
