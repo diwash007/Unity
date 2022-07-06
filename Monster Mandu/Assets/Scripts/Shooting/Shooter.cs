@@ -12,7 +12,7 @@ namespace Shooting
         [SerializeField]
         private GameObject bullet;
         [SerializeField]
-        AudioSource bulletSFX;
+        private AudioSource bulletSfx;
 
         [SerializeField]
         private float coolDownTimer = 0.3f;
@@ -31,7 +31,7 @@ namespace Shooting
 
         private void Shoot()
         {
-            bulletSFX.Play();
+            bulletSfx.Play();
 
             var spawnedBullet = Instantiate(bullet, bulletSpawner.position, Quaternion.identity);
             spawnedBullet.TryGetComponent<Rigidbody2D>(out var bulletRb);
