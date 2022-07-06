@@ -1,4 +1,3 @@
-using SaveLoad;
 using UnityEngine;
 
 namespace Shooting
@@ -33,7 +32,6 @@ namespace Shooting
         private void SaveScore()
         {
             if(GameManager.scoreValue <= GameManager.highScore) return;
-            print(GameManager.scoreValue);
         }
     }
 }
