@@ -32,6 +32,7 @@ namespace Shooting
         private void SaveScore()
         {
             if(GameManager.scoreValue <= GameManager.highScore) return;
+            GameManager.finalScore = GameManager.scoreValue;
         }
     }
 }
