@@ -13,12 +13,11 @@ public class ScoreController : MonoBehaviour
     {
         GameManager.scoreValue = 0;
         GameManager.highScore = SaveLoadScore.LoadHighScore();
-        print(GameManager.highScore);
-        highScoreText.text = $"HighScore: {GameManager.highScore.ToString()}";
     }
 
     private void Update()
     {
-        scoreText.text = "Score: " + GameManager.scoreValue;
+        scoreText.text = "Score: " + GameManager.scoreValue; 
+        highScoreText.text = $"HighScore: {GameManager.highScore.ToString()}";
     }
 }
