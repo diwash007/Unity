@@ -11,8 +11,8 @@ public class ScoreController : MonoBehaviour
 
     private void Start()
     {
-        GameManager.scoreValue = 0;
         GameManager.highScore = SaveLoadScore.LoadHighScore();
+        highScoreText.text = "HighScore: " + GameManager.highScore;
     }
 
     private void Update()
