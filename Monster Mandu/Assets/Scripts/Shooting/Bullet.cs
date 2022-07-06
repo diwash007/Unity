@@ -1,5 +1,4 @@
-using System;
-using Unity.VisualScripting;
+using SaveLoad;
 using UnityEngine;
 
 namespace Shooting
@@ -26,8 +25,16 @@ namespace Shooting
             var particle = Instantiate(hitParticle, transform.position, Quaternion.identity);
             particle.Play();
             GameManager.scoreValue += 5;
+            SaveScore();
             Destroy(gameObject);
             Destroy(col.gameObject);
+        }
+        
+        private void SaveScore()
+        {
+            if(GameManager.scoreValue <= GameManager.highScore) return;
+            print(GameManager.scoreValue);
+            SaveLoadScore.SaveHighScore(GameManager.scoreValue);
         }
     }
 }
