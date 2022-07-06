@@ -34,7 +34,6 @@ namespace Shooting
         {
             if(GameManager.scoreValue <= GameManager.highScore) return;
             print(GameManager.scoreValue);
-            SaveLoadScore.SaveHighScore(GameManager.scoreValue);
         }
     }
 }

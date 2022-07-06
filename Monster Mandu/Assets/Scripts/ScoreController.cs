@@ -13,7 +13,6 @@ public class ScoreController : MonoBehaviour
     {
         GameManager.scoreValue = 0;
         GameManager.highScore = SaveLoadScore.LoadHighScore();
-        print(GameManager.highScore);
         highScoreText.text = $"HighScore: {GameManager.highScore.ToString()}";
     }
 
