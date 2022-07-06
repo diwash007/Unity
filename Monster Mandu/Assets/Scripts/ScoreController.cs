@@ -1,5 +1,6 @@
 using SaveLoad;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
@@ -17,6 +18,7 @@ public class ScoreController : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = "Score: " + GameManager.scoreValue;
+        scoreText.text = "Score: " + GameManager.scoreValue; 
+        highScoreText.text = $"HighScore: {GameManager.highScore.ToString()}";
     }
 }

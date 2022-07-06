@@ -1,3 +1,4 @@
+using SaveLoad;
 using UnityEngine;
 
 namespace Shooting
@@ -32,7 +33,9 @@ namespace Shooting
         private void SaveScore()
         {
             if(GameManager.scoreValue <= GameManager.highScore) return;
-            GameManager.finalScore = GameManager.scoreValue;
+            print("Saved");
+            SaveLoadScore.SaveHighScore(GameManager.scoreValue);
+            GameManager.highScore = GameManager.scoreValue;
         }
     }
 }
