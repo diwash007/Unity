@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 {
     public static int scoreValue = 0;
     public static int highScore = 0;
-    public static int finalScore = 0;
     public static bool gameOver = false;
 
     public static GameManager instance;
@@ -47,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Gameplay")
         {
+            scoreValue = 0;
             Instantiate(characters[CharIndex]);
         }
     }
