@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adbba5c22b8b5b41be97caee62df0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSFX: {fileID: 738032389}
+  buttonSfx: {fileID: 738032389}
 --- !u!114 &765048054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +688,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 4806700964729755518, guid: 75b769de7655d5e45b5b633060964f81, type: 3}
+      propertyPath: buttonSfx
+      value: 
+      objectReference: {fileID: 738032389}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b769de7655d5e45b5b633060964f81, type: 3}
 --- !u!1 &1176234455

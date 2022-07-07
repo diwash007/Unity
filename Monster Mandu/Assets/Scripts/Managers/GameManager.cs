@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,8 @@ namespace Managers
     {
         public static int ScoreValue;
         public static int HighScore;
+
+        public static bool isGameOver;
 
         public static GameManager Instance;
 
