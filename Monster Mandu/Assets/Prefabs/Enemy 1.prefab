@@ -158,4 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  enemyDeathSfx: {fileID: 8300000, guid: 926988ca9ef3be54997b109233e67945, type: 3}
+  enemyKillAudioSource: {fileID: 0}
