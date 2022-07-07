@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawner: {fileID: 671408030709291294}
   bullet: {fileID: 2722822436030129465, guid: c0cb306b90274ca44b324ddb761ceea3, type: 3}
-  bulletSFX: {fileID: -7486967244656587350}
+  bulletSfx: {fileID: -7486967244656587350}
   coolDownTimer: 0.5
   bulletSpeed: 25
   canFire: 1
