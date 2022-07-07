@@ -1,4 +1,5 @@
 using System.Collections;
+using Managers;
 using UnityEngine;
 
 namespace Shooting
@@ -23,6 +24,7 @@ namespace Shooting
 
         private void Update()
         {
+            if(GameManager.isGameOver) return;
             if(!canFire) return;
             if (Input.GetAxis(Fire1) <= 0) return;
             
