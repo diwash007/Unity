@@ -4249,7 +4249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adbba5c22b8b5b41be97caee62df0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSFX: {fileID: 1013821489}
+  buttonSfx: {fileID: 1013821489}
 --- !u!114 &1472763718
 MonoBehaviour:
   m_ObjectHideFlags: 0

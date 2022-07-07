@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,8 +15,6 @@ namespace Player
         private float jumpForce = 1f;
 
         private float _movementX;
-
-        private bool _freeze;
 
         private Rigidbody2D _myBody;
         private CapsuleCollider2D _playerCollider;
@@ -39,16 +39,21 @@ namespace Player
             _playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
         }
 
+        private void Start()
+        {
+            GameManager.isGameOver = false;
+        }
+
         private void Update()
         {
-            if (_freeze) return;
+            if (GameManager.isGameOver) return;
             PlayerMoveKeyboard();
             AnimatePlayer();
         }
 
         private void FixedUpdate()
         {   
-            if (!_freeze)
+            if (!GameManager.isGameOver)
                 PlayerJump();
         }
 
@@ -100,8 +105,8 @@ namespace Player
         }
 
         private IEnumerator LoadSceneAfterDelay(float delay)
-        {   
-            _freeze = true;
+        {
+            GameManager.isGameOver = true;
 
             // mario type death
             _playerCollider.enabled = false;

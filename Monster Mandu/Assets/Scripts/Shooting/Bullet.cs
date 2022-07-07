@@ -35,7 +35,6 @@ namespace Shooting
         private static void SaveScore()
         {
             if(GameManager.ScoreValue <= GameManager.HighScore) return;
-            print("Saved");
             SaveLoadScore.SaveHighScore(GameManager.ScoreValue);
             GameManager.HighScore = GameManager.ScoreValue;
         }
