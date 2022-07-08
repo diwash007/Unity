@@ -1,3 +1,4 @@
+using PlayerScripts;
 using UnityEngine;
 
 namespace Camera
@@ -5,10 +6,16 @@ namespace Camera
     public class CameraFollow : MonoBehaviour
     {
         private Transform _player;
-        private Vector3 _tempPos;
 
         [SerializeField]
-        private float minX, maxX;
+        private Transform minX;
+        [SerializeField]
+        private Transform maxX;
+
+        [SerializeField]
+        private float xOffset;
+        [SerializeField]
+        private float speed;
 
         private void Start()
         {
@@ -17,15 +24,32 @@ namespace Camera
 
         private void LateUpdate()
         {
-            if (!_player) return;
-        
-            _tempPos = transform.position;
-            _tempPos.x = _player.position.x + 3;
+            CameraMovement();
+        }
 
-            if (_tempPos.x < minX) _tempPos.x = minX;
-            if (_tempPos.x > maxX) _tempPos.x = maxX;
-        
-            transform.position = _tempPos;
+        private void CameraMovement()
+        {
+            if (!_player) return;
+            if (!_player.TryGetComponent<Player>(out var player)) return;
+
+            var cameraTransform = transform;
+            var cameraPosition = cameraTransform.position;
+            if (player.isFlipped)
+            {
+                var newCameraPos = _player.position.x - xOffset;
+                var xPositionLerp = Mathf.Lerp(transform.position.x, newCameraPos, Time.deltaTime * speed);
+                cameraPosition = new Vector3(xPositionLerp, cameraPosition.y, cameraPosition.z);
+            }
+            else
+            {
+                
+                var newCameraPos =_player.position.x + xOffset;
+                var xPositionLerp = Mathf.Lerp(transform.position.x, newCameraPos, Time.deltaTime * speed);
+                cameraPosition = new Vector3(xPositionLerp, cameraPosition.y, cameraPosition.z);
+            }
+
+            cameraPosition.x = Mathf.Clamp(cameraPosition.x, minX.position.x, maxX.position.x);
+            cameraTransform.position = cameraPosition;
         }
     }
 }

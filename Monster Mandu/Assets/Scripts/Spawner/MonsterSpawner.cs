@@ -17,8 +17,12 @@ namespace Spawner
         private int _randomIndex;
         private int _randomSide;
 
+        [SerializeField]
+        private bool shouldSpawnMonsters;
+
         private void Start()
         {
+            if(!shouldSpawnMonsters) return;
             StartCoroutine(SpawnMonsters());
         }
 

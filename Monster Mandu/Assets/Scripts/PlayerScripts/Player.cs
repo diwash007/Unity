@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Player
+namespace PlayerScripts
 {
     public class Player : MonoBehaviour
     {
@@ -31,6 +30,8 @@ namespace Player
 
         public ParticleSystem deathParticle;
         private static readonly int Walk = Animator.StringToHash(WalkAnimation);
+
+        public bool isFlipped;
 
         private void Awake()
         {
@@ -69,10 +70,12 @@ namespace Player
             {
                 case > 0:
                     transform.localScale = new Vector2(1, 1);
+                    isFlipped = false;
                     _anim.SetBool(Walk, true);
                     break;
                 case < 0:
                     transform.localScale = new Vector2(-1, 1);
+                    isFlipped = true;
                     _anim.SetBool(Walk, true);
                     break;
                 default:
