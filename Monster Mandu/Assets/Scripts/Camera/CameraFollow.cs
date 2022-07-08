@@ -15,7 +15,7 @@ namespace Camera
         [SerializeField]
         private float xOffset;
         [SerializeField]
-        private float speed;
+        private float speed = 5;
 
         private void Start()
         {
@@ -34,22 +34,22 @@ namespace Camera
 
             var cameraTransform = transform;
             var cameraPosition = cameraTransform.position;
-            if (player.isFlipped)
+            
+            var newCameraPos = player.isFlipped ? _player.position.x - xOffset : _player.position.x + xOffset;
+
+            if (newCameraPos < minX.position.x || newCameraPos > maxX.position.x)
             {
-                var newCameraPos = _player.position.x - xOffset;
-                var xPositionLerp = Mathf.Lerp(transform.position.x, newCameraPos, Time.deltaTime * speed);
-                cameraPosition = new Vector3(xPositionLerp, cameraPosition.y, cameraPosition.z);
+                cameraPosition = new Vector3(newCameraPos, cameraPosition.y, cameraPosition.z);
+                cameraPosition.x = Mathf.Clamp(cameraPosition.x, minX.position.x, maxX.position.x);
             }
             else
             {
-                
-                var newCameraPos =_player.position.x + xOffset;
                 var xPositionLerp = Mathf.Lerp(transform.position.x, newCameraPos, Time.deltaTime * speed);
                 cameraPosition = new Vector3(xPositionLerp, cameraPosition.y, cameraPosition.z);
+                cameraPosition.x = Mathf.Clamp(cameraPosition.x, minX.position.x, maxX.position.x);
             }
-
-            cameraPosition.x = Mathf.Clamp(cameraPosition.x, minX.position.x, maxX.position.x);
-            cameraTransform.position = cameraPosition;
+            
+            cameraTransform.position = cameraPosition; 
         }
     }
 }
