@@ -305,7 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c7839da33198247a763bd78b3ce16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInPortal: 0
 --- !u!1 &68641097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1274,6 @@ MonoBehaviour:
   maxX: {fileID: 1221796693}
   xOffset: 4
   speed: 5
-  collector: {fileID: 67204206}
 --- !u!1 &539270727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4119,7 +4117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c7839da33198247a763bd78b3ce16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInPortal: 0
 --- !u!1 &1419107820
 GameObject:
   m_ObjectHideFlags: 0
