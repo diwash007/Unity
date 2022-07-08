@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Player
+namespace PlayerScripts
 {
     public class Player : MonoBehaviour
     {

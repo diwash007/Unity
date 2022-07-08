@@ -1,3 +1,4 @@
+using PlayerScripts;
 using UnityEngine;
 
 namespace Camera
@@ -5,6 +6,12 @@ namespace Camera
     public class CameraFollow : MonoBehaviour
     {
         private Transform _player;
+
+        [SerializeField]
+        private Transform minX;
+        [SerializeField]
+        private Transform maxX;
+
         [SerializeField]
         private float xOffset;
         [SerializeField]
@@ -23,21 +30,26 @@ namespace Camera
         private void CameraMovement()
         {
             if (!_player) return;
-            if (!_player.TryGetComponent<Player.Player>(out var player)) return;
+            if (!_player.TryGetComponent<Player>(out var player)) return;
 
             var cameraTransform = transform;
             var cameraPosition = cameraTransform.position;
             if (player.isFlipped)
             {
-                var xPositionLerp = Mathf.Lerp(transform.position.x, _player.position.x - xOffset, Time.deltaTime * speed);
+                var newCameraPos = _player.position.x - xOffset;
+                var xPositionLerp = Mathf.Lerp(transform.position.x, newCameraPos, Time.deltaTime * speed);
                 cameraPosition = new Vector3(xPositionLerp, cameraPosition.y, cameraPosition.z);
             }
             else
             {
-                var xPositionLerp = Mathf.Lerp(transform.position.x, _player.position.x + xOffset, Time.deltaTime * speed);
+                
+                var newCameraPos =_player.position.x + xOffset;
+                var xPositionLerp = Mathf.Lerp(transform.position.x, newCameraPos, Time.deltaTime * speed);
                 cameraPosition = new Vector3(xPositionLerp, cameraPosition.y, cameraPosition.z);
             }
-            cameraTransform.position = cameraPosition; 
+
+            cameraPosition.x = Mathf.Clamp(cameraPosition.x, minX.position.x, maxX.position.x);
+            cameraTransform.position = cameraPosition;
         }
     }
 }
