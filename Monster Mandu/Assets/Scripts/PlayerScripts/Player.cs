@@ -142,21 +142,21 @@ namespace PlayerScripts
         {
             if (!collision.CompareTag("Collector")) return;
 
-            if (collision.gameObject.transform.position.x < 0)
+            if (transform.position.x < 0)
             {
                 isInPortal = true;
                 transform.position = new Vector2(60f, -2f);
-                Invoke(nameof(InInPortalFalse), 2f);
+                Invoke(nameof(IsInPortalFalse), 0.01f);
             }
             else
             {
                 isInPortal = true;
                 transform.position = new Vector2(-60f,-2f);
-                Invoke(nameof(InInPortalFalse), 2f);
+                Invoke(nameof(IsInPortalFalse), 0.01f);
             }
         }
         
-        private void InInPortalFalse()
+        private void IsInPortalFalse()
         {
             isInPortal = false;
         }
