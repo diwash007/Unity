@@ -32,6 +32,8 @@ namespace Player
         public ParticleSystem deathParticle;
         private static readonly int Walk = Animator.StringToHash(WalkAnimation);
 
+        public bool isFlipped;
+
         private void Awake()
         {
             _myBody = GetComponent<Rigidbody2D>();
@@ -69,10 +71,12 @@ namespace Player
             {
                 case > 0:
                     transform.localScale = new Vector2(1, 1);
+                    isFlipped = false;
                     _anim.SetBool(Walk, true);
                     break;
                 case < 0:
                     transform.localScale = new Vector2(-1, 1);
+                    isFlipped = true;
                     _anim.SetBool(Walk, true);
                     break;
                 default:
