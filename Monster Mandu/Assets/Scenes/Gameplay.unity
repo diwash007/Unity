@@ -5896,7 +5896,7 @@ MonoBehaviour:
   - {fileID: 3807386120094735443, guid: 0fd1763eed50d3947b36dc4bbf21ccbf, type: 3}
   leftPos: {fileID: 1771898365}
   rightPos: {fileID: 258581710}
-  shouldSpawnMonsters: 0
+  shouldSpawnMonsters: 1
 --- !u!4 &2095503991
 Transform:
   m_ObjectHideFlags: 0
