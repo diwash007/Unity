@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Score
   - EnemyAudioSource
+  - Collector
   layers:
   - Default
   - TransparentFX

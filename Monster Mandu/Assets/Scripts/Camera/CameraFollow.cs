@@ -1,3 +1,4 @@
+using Enemy;
 using PlayerScripts;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace Camera
             
             var newCameraPos = player.isFlipped ? _player.position.x - xOffset : _player.position.x + xOffset;
 
-            if (newCameraPos < minX.position.x || newCameraPos > maxX.position.x)
+            if (player.isInPortal)
             {
                 cameraPosition = new Vector3(newCameraPos, cameraPosition.y, cameraPosition.z);
                 cameraPosition.x = Mathf.Clamp(cameraPosition.x, minX.position.x, maxX.position.x);

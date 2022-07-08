@@ -32,6 +32,7 @@ namespace PlayerScripts
         private static readonly int Walk = Animator.StringToHash(WalkAnimation);
 
         public bool isFlipped;
+        public bool isInPortal;
 
         private void Awake()
         {
@@ -130,9 +131,39 @@ namespace PlayerScripts
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            CollideWithCollector(collision);
+            
             if (!collision.CompareTag(EnemyTag)) return;
             StartCoroutine(LoadSceneAfterDelay(1.5f));
             Destroy();
+        }
+
+        private void CollideWithCollector(Collider2D collision)
+        {
+            if (!collision.CompareTag("Collector")) return;
+
+            if (collision.gameObject.transform.position.x < 0)
+            {
+                isInPortal = true;
+                transform.position = new Vector2(60f, -2f);
+                Invoke(nameof(InInPortalFalse), 2f);
+            }
+            else
+            {
+                isInPortal = true;
+                transform.position = new Vector2(-60f,-2f);
+                Invoke(nameof(InInPortalFalse), 2f);
+            }
+        }
+        
+        private void InInPortalFalse()
+        {
+            isInPortal = false;
+        }
+
+        private void OnDisable()
+        {
+            CancelInvoke();
         }
 
         private void Destroy()
