@@ -1273,7 +1273,7 @@ MonoBehaviour:
   minX: {fileID: 876776623}
   maxX: {fileID: 1221796693}
   xOffset: 4
-  speed: 8
+  speed: 5
 --- !u!1 &539270727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5896,7 +5896,7 @@ MonoBehaviour:
   - {fileID: 3807386120094735443, guid: 0fd1763eed50d3947b36dc4bbf21ccbf, type: 3}
   leftPos: {fileID: 1771898365}
   rightPos: {fileID: 258581710}
-  shouldSpawnMonsters: 1
+  shouldSpawnMonsters: 0
 --- !u!4 &2095503991
 Transform:
   m_ObjectHideFlags: 0
