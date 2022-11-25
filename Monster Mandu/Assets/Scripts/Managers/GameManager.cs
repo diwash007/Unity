@@ -34,9 +34,8 @@ namespace Managers
                 Destroy(gameObject);
             }
         }
-
         private void OnEnable()
-        {   Instantiate(characters[0]);
+        {   
             SceneManager.sceneLoaded += OnLevelFinishedLoading;
         }
         private void OnDisable()
@@ -48,7 +47,7 @@ namespace Managers
         {
             if (scene.name != "Gameplay") return;
             ScoreValue = 0;
-            Instantiate(characters[0]);
+            // Instantiate(characters[0]);
         }
     }
 }
