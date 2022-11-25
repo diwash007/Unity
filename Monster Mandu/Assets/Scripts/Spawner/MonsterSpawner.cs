@@ -30,7 +30,7 @@ namespace Spawner
         {
         
             while (true) {
-                yield return new WaitForSeconds(Random.Range(1, 5));
+                yield return new WaitForSeconds(Random.Range(1, 3));
 
                 _randomIndex = Random.Range(0, monsterReference.Length);
                 _randomSide = Random.Range(0, 2);
