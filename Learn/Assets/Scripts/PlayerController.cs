@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 5;
     [SerializeField]
     private float jumpForce = 10;
-    private float direction;
+    public float direction;
     private Vector2 startLocalScale;
 
     [SerializeField]
@@ -58,13 +58,14 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(speed * direction * Time.deltaTime, rb.velocity.y);
     }
 
-    private void OnDrawGizmos() {
-        Debug.DrawRay(groundCheckerTransform.position, Vector3.down * groundDistance);
-    }
-
     private bool IsGrounded()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(groundCheckerTransform.position, Vector3.down, groundDistance, groundLayerMask);
         return hitInfo.collider != null;
     }
+
+    // private void OnDrawGizmos() {
+    //     Debug.DrawRay(groundCheckerTransform.position, Vector3.down * groundDistance);
+    // }
+
 }

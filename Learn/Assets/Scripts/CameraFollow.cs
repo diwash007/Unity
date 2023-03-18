@@ -5,13 +5,15 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
-    Transform target;
+    PlayerController target;
     [SerializeField]
     private float followSpeed;
+    public float yOffset = 2f;
+    public float xOffset = 5f;
 
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
+        Vector3 newPos = new Vector3(target.transform.position.x + xOffset * target.direction, target.transform.position.y + yOffset, -10f);
         transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime); 
     }
 }

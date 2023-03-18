@@ -211,6 +211,7 @@ MonoBehaviour:
   rb: {fileID: 123171128}
   speed: 200
   jumpForce: 300
+  direction: 0
   groundCheckerTransform: {fileID: 273927740}
   groundDistance: 0.5
   groundLayerMask:
@@ -429,8 +430,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb66cc85685e134296851dde3c73971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 123171126}
-  followSpeed: 5
+  target: {fileID: 123171129}
+  followSpeed: 2
+  yOffset: 2
+  xOffset: 5
 --- !u!1 &750614348
 GameObject:
   m_ObjectHideFlags: 0
