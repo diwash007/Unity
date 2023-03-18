@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -22,13 +20,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool isGrounded;
 
+    [SerializeField]
+    private Animator animator;
+
     private void Start()
     {
         startLocalScale = transform.localScale;
     }
 
     private void Update()
-    {   
+    {
+        animator.SetFloat("speed", Mathf.Abs(direction));
         isGrounded = IsGrounded();
 
         if (Input.GetKey(KeyCode.RightArrow))
@@ -41,13 +43,14 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-startLocalScale.x, transform.localScale.y);
             direction = -1;
         }
-        else {
+        else
+        {
             direction = 0;
         }
 
         // Jumping 
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
-        {   
+        {
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector3(0, jumpForce, 0));
         }

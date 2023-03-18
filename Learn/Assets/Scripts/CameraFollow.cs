@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -8,12 +6,29 @@ public class CameraFollow : MonoBehaviour
     PlayerController target;
     [SerializeField]
     private float followSpeed;
+    public float xOffset = 2f;
     public float yOffset = 2f;
-    public float xOffset = 5f;
+    private Vector3 cameraPos;
 
-    void FixedUpdate()
+    private void Start()
     {
-        Vector3 newPos = new Vector3(target.transform.position.x + xOffset * target.direction, target.transform.position.y + yOffset, -10f);
-        transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime); 
+        cameraPos.y = transform.position.y + yOffset;
+    }
+    private void LateUpdate()
+    {
+        if (target.direction > 0)
+        {
+            cameraPos = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x + xOffset, transform.position.y), Time.deltaTime * followSpeed);
+        }
+        else if (target.direction < 0)
+        {
+            cameraPos = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x - xOffset, transform.position.y), Time.deltaTime * followSpeed);
+        }
+        else
+        {
+            cameraPos = Vector2.MoveTowards(transform.position, transform.position, Time.deltaTime * followSpeed);
+        }
+        cameraPos.z = -10f;
+        transform.position = cameraPos;
     }
 }
