@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("speed", Mathf.Abs(direction));
         isGrounded = IsGrounded();
 
         if (Input.GetKey(KeyCode.RightArrow))
@@ -55,6 +54,9 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpForce, 0));
         }
 
+        animator.SetFloat("speed", Mathf.Abs(direction));
+        animator.SetBool("jump", !isGrounded && rb.velocity.y > 0);
+        animator.SetBool("fall", !isGrounded && rb.velocity.y < -0.2);
     }
     private void FixedUpdate()
     {
