@@ -29,6 +29,8 @@ public class CameraFollow : MonoBehaviour
             cameraPos = Vector2.MoveTowards(transform.position, transform.position, Time.deltaTime * followSpeed);
         }
         cameraPos.z = -10f;
-        transform.position = cameraPos;
+
+        if (target.transform.position.x > -4.5f)
+            transform.position = cameraPos;
     }
 }
