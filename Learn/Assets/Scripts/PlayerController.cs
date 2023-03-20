@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 10;
     public float direction;
+    public float hp = 100;
     private Vector2 startLocalScale;
 
     [SerializeField]
