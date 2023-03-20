@@ -30,7 +30,7 @@ public class CameraFollow : MonoBehaviour
         }
         cameraPos.z = -10f;
 
-        if (target.transform.position.x > -4.5f)
+        if (target.transform.position.x > -4.5f && target.transform.position.x < 75f)
             transform.position = cameraPos;
     }
 }
