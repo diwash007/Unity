@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &42266576 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 42266576, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
+  m_PrefabInstance: {fileID: 2476794633469319319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &123171125
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 123171128}
+  playerCollider: {fileID: 123171127}
   speed: 200
   jumpForce: 600
   direction: 0
@@ -950,11 +956,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 24.12199, y: 0.4163611}
   m_EdgeRadius: 0
---- !u!70 &942452467 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2476794632800106105, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
-  m_PrefabInstance: {fileID: 2476794633469319319}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1146002202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,26 +1320,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42266576, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 942452465, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
-      propertyPath: capsuleCollider
+      propertyPath: animator
       value: 
-      objectReference: {fileID: 942452467}
-    - target: {fileID: 942452469, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
-      propertyPath: m_Points.Array.data[0].x
-      value: -0.0662653
-      objectReference: {fileID: 0}
-    - target: {fileID: 942452469, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
-      propertyPath: m_Points.Array.data[0].y
-      value: 0.043757908
-      objectReference: {fileID: 0}
-    - target: {fileID: 942452469, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
-      propertyPath: m_Points.Array.data[3].x
-      value: 0.06722262
-      objectReference: {fileID: 0}
-    - target: {fileID: 942452469, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
-      propertyPath: m_Points.Array.data[3].y
-      value: 0.047367148
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 42266576}
     - target: {fileID: 2476794632800106087, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1381,10 +1370,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2476794632800106087, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2476794632800106087, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
-      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2476794632800106106, guid: 553df158cc308ce40ac69aee3a2065c2, type: 3}
