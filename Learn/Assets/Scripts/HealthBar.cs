@@ -8,9 +8,9 @@ public class HealthBar : MonoBehaviour
     private Image health;
     [SerializeField]
     PlayerController player;
-    // Update is called once per frame
+
     void Update()
     {
-        health.fillAmount = Mathf.Lerp(health.fillAmount, player.hp / MAX_HEALTH, 0.1f);
+        health.fillAmount = Mathf.MoveTowards(health.fillAmount, player.hp / MAX_HEALTH, 2f * Time.deltaTime);
     }
 }

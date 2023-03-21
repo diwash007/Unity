@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             if (other.gameObject.GetComponent<Enemy>().isDead == true)
                 return;
             isDead = true;
-            hp = 0f;
+            hp = 50f;
             Destroy(gameObject, 3);
             playerCollider.enabled = false;
             rb.velocity = Vector2.zero;
